@@ -78,6 +78,11 @@
     function redirectToLogin() {
       window.location.href = "https://sistemascoachin.github.io/Login-/";
     }
+
+    // Função para redirecionar para a tela de menus
+    function redirectToMenu() {
+      window.location.href = "https://sistemascoachin.github.io/menu2/";
+    }
   </script>
 </head>
 <body>
@@ -88,8 +93,8 @@
     </div>
     <div class="welcome-message">Selecione uma opção:</div>
     <div class="menu-buttons">
-      <button onclick="window.location.href='https://sistemascoachin.github.io/menu2/'">Lançar Sublocações</button>
-      <button onclick="window.location.href='https://sistemascoachin.github.io/menu2/'">Lançar Particulares da Clínica</button>
+      <button onclick="redirectToMenu()">Lançar Sublocações</button>
+      <button onclick="redirectToMenu()">Lançar Particulares da Clínica</button>
     </div>
   </div>
 </body>
