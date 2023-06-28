@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tela de Login</title>
+  <title>Tela de Menus</title>
   <style>
     body {
       background-color: #E1F3E1;
@@ -12,83 +12,85 @@
       font-family: Arial, sans-serif;
     }
 
-    .login-container {
+    .menu-container {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
       background-color: white;
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .login-form {
+    .welcome-message {
+      font-size: 18px;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+
+    .menu-buttons {
       display: flex;
       flex-direction: column;
-      margin-left: 20px;
     }
 
-    .login-form label {
-      margin-bottom: 10px;
-    }
-
-    .login-form input[type="text"],
-    .login-form input[type="password"] {
-      padding: 5px;
-      margin-bottom: 10px;
-    }
-
-    .login-form input[type="submit"] {
+    .menu-buttons button {
       background-color: #4CAF50;
       color: white;
       border: none;
       padding: 10px 20px;
+      margin-bottom: 10px;
       cursor: pointer;
     }
 
-    .error-message {
-      color: red;
-      margin-top: 10px;
-      font-size: 14px;
-      display: none; /* Esconder mensagem de erro por padrão */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: -20px;
+      margin-right: -20px;
     }
 
-    h1 {
-      font-size: 24px;
-      color: #4CAF50;
-      margin-bottom: 20px;
+    .logo-container img {
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
     }
+
   </style>
   <script>
-    function validateForm() {
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-
-      if (username === "admin" && password === "admin") {
-        // Login successful
-        return true;
-      } else {
-        // Login failed
-        var errorMessage = document.getElementById("error-message");
-        errorMessage.style.display = "block"; // Exibir mensagem de erro
-        return false;
+    // Verifica se o usuário está logado ao carregar a página
+    window.onload = function() {
+      var isLoggedIn = checkLoginStatus();
+      if (!isLoggedIn) {
+        redirectToLogin();
       }
+    };
+
+    // Função para verificar o status do login
+    function checkLoginStatus() {
+      // Verifique o status do login aqui (pode ser uma verificação de cookie, token, etc.)
+      var isLoggedIn = false; // Defina como true se o login estiver válido
+
+      return isLoggedIn;
+    }
+
+    // Função para redirecionar para a página de login
+    function redirectToLogin() {
+      window.location.href = "https://sistemascoachin.github.io/Login-/";
     }
   </script>
 </head>
 <body>
-  <div class="login-container">
-    <img src="https://drive.google.com/uc?id=1lYi-W7s23S9fiqmRv5jO8DzhDuZ8Wuv5" alt="Logo" width="150" height="150">
-    <form class="login-form" onsubmit="return validateForm()">
-      <h1>Sistema Administrativo</h1>
-      <label for="username">Usuário:</label>
-      <input type="text" id="username" name="username">
-      
-      <label for="password">Senha:</label>
-      <input type="password" id="password" name="password">
-      
-      <input type="submit" value="Entrar">
-      <p id="error-message" class="error-message">Você não é um colaborador CoachinGente, favor verificar as credenciais</p> <!-- Espaço reservado para a mensagem de erro -->
-    </form>
+  <div class="menu-container">
+    <div class="logo-container">
+      <img src="https://drive.google.com/uc?id=1lYi-W7s23S9fiqmRv5jO8DzhDuZ8Wuv5" alt="Logo">
+      <p>Bem-vindo de volta!</p>
+    </div>
+    <div class="welcome-message">Selecione uma opção:</div>
+    <div class="menu-buttons">
+      <button onclick="window.location.href='https://sistemascoachin.github.io/menu2/'">Lançar Sublocações</button>
+      <button onclick="window.location.href='https://sistemascoachin.github.io/menu2/'">Lançar Particulares da Clínica</button>
+    </div>
   </div>
 </body>
 </html>
